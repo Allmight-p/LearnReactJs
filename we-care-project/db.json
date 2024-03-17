@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Maria",
+      "password": "maria12345",
+      "gender": "F",
+      "dateOfBirth": "1996-01-01",
+      "email": "maria@gmail.com",
+      "mobileNumber": 1234567890,
+      "pincode": 123456,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "country": "India"
+    },
+    {
+      "id": "1199",
+      "name": "Pikachu",
+      "password": "pikachu",
+      "gender": "M",
+      "dateOfBirth": "1997-09-08",
+      "email": "nagatonaveen@gmail.com",
+      "mobileNumber": "1234567890",
+      "pincode": "600056",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "Indias"
+    }
+  ],
+  "coaches": [
+    {
+      "id": "1",
+      "name": "Rose",
+      "password": "rose12345",
+      "gender": "F",
+      "dateOfBirth": "1996-01-01",
+      "mobileNumber": 1234567890,
+      "speciality": "Confidence Issues"
+    },
+    {
+      "id": "ba4f",
+      "name": "domer",
+      "password": "dober",
+      "gender": "M",
+      "dateOfBirth": 26,
+      "mobileNumber": "1223457833",
+      "speciality": "Kung fu man"
+    }
+  ],
+  "bookings": [
+    {
+      "appointmentDate": "2020-09-24",
+      "slot": "10 AM to 11 AM",
+      "userId": 1,
+      "coachId": 1,
+      "id": "1"
+    }
+  ]
+}
