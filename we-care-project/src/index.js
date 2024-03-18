@@ -17,6 +17,7 @@ import UserLogin from './Components/UserLoginComponent';
 import CoachHome from './Components/CoachHomeComponent';
 import CoachSchedules from './Components/CoachSchedulesComponent';
 import RootReducer from './Reducers/RootReducer';
+import UserHome from './Components/UserHomeComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = applyMiddleware(thunk)(createStore)(RootReducer);
@@ -25,7 +26,8 @@ root.render(
     <Provider store={store}>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />}/>
+    <Route path="/" element={<Home />}/>
+      <Route path="/home" element={<Home />}/>
       <Route path="/coachregister" element={<Coachregister />} />
       <Route path="/coachlogin" element={<CoachLogin />} />
       <Route path='/usersignup' element={<UserRegister />} />
@@ -33,6 +35,9 @@ root.render(
       <Route path='/coachhome' element={<CoachHome />} />
       <Route path='/coachschedules' element={<CoachHome />} />
       <Route path='/coachviewprofile' element={<CoachHome />} />
+      <Route path='/userhome' element={<UserHome />} />
+      <Route path='/userviewprofile' element={<UserHome />} />
+      <Route path='/userappointments' element={<UserHome />} />
     </Routes>
     </BrowserRouter>
     </Provider>
