@@ -18,6 +18,24 @@ const coachValidate = (data) => {
 }
 }
 
+const userValidate = (data) => {  
+    return dispatch => {
+        axios.get("http://localhost:8080/users/" + `?id=${data.Userid}` + `&password=${data.pwd}`)
+        .then((res) => {
+            let value = res.data;
+            let result = value.some((val) => val);
+            if(result){
+                console.log(value.id);
+                dispatch(Login(true, data.Userid));
+            }
+            else{
+                dispatch(Login(false, ""));
+            }
+        })
+        .catch((err) => {console.log(err)})
+}
+}
+
 const Profile = (show) => {
     return{
         type : "Profile",
@@ -33,4 +51,10 @@ const Login = (status, id) => {
     }
 }
 
-export {Login, coachValidate, Profile};
+const Logout = () => {
+    return {
+        type : "Logout"
+    }
+}
+
+export {Login, coachValidate, Profile, userValidate,Logout};
