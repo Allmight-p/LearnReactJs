@@ -9,6 +9,10 @@ const coachReducer = (state ={}, actions) =>{
                 return{
                     ...state, displayProfile : actions.show
                 }
+            case "Logout":
+                return{
+                    ...state, isAuthenticated: false, loginid : ""
+                }
             
             default:
                 return state;
