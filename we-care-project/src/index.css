@@ -8,6 +8,18 @@
     align-items: center;
 }
 
+.userappointments{
+    background-color: wheat;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+
 #coachhomepage{
     display: flex;
+    flex-direction: column;
 }
