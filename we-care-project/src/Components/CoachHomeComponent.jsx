@@ -7,15 +7,15 @@ const CoachHome = () => {
     const [emp, setemp] = useState([]);
     const [viewprofile, setprofile] = useState([]);
     const loginid = useSelector(state => state.coachReducer.loginid);
-    const [displayProfile, setdisplayProfile] = useState(false);
+    const [displayProfile, setdisplayProfile] = useState("");
 
     useEffect(() => {
-        if(!displayProfile){
+        if(displayProfile === "Schedule"){
             axios.get("http://localhost:8080/bookings")
         .then((res) => {setemp(res.data);})
         .catch((err) => {console.log(err);})
         }
-        else{
+        else if(displayProfile === "Viewprofile"){
             axios.get("http://localhost:8080/coaches/" + `?id=${loginid}`)
         .then((res) => {setprofile(res.data);})
         .catch((err) => {console.log(err);})
@@ -26,16 +26,17 @@ const CoachHome = () => {
         <>
             <Header Schedule="/coachschedules" Profile="/coachviewprofile" LoggedIn = {true} setdisplayProfile = {setdisplayProfile}  />
             <div className="container" id="coachhomepage">
-                { !displayProfile ?
+                { displayProfile === "Schedule" ?
                     emp.map((details) => {
                         return(
+                            details.id === undefined ? <h2>No plans scheduled yet</h2> :
                         <div className="appointments" key={details.id}>
                             <h3>AppointmentDate : {details.appointmentDate}</h3><br />
                             <h4>Slot : {details.slot}</h4><br /><br />
                             <span>Booking id : {details.id}</span><br />
                             <span>User id : {details.userId}</span><br />
                             </div>
-                    );})
+                    );})                   
                 : <>
                     {
                         viewprofile.map((details) =>{
