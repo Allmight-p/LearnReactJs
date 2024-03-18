@@ -2,9 +2,13 @@ import { useState } from "react";
 import Header from "./HeaderComponent";
 import ValidateForm from "../Services/ValidateForm";
 import axios from 'axios';
+import { userValidate } from "../Actions/Action";
+import {useDispatch, useSelector} from "react-redux"
+import { Navigate } from "react-router-dom";
 
 const UserLogin = () =>{
-
+    const dispatch = useDispatch();
+    const auth = useSelector(state => state.coachReducer.isAuthenticated);
     const [Userid, setUserid] = useState("");
     const [pwd, setpwd] = useState("");
     const [formErrors, setformErrors] = useState({id: "", pwd : "", cred : ""});
@@ -16,9 +20,17 @@ const UserLogin = () =>{
             setformErrors({id : validateUser, pwd : validatepwd});
             return;
         }
-        axios.get("http://localhost:8080/users/" + `?id=${Userid}` + `&password=${pwd}`)
-        .then((res) => console.log(res.data))
-        .catch((err) => {setformErrors({cred : "Invalid Credentials"})})
+        // axios.get("http://localhost:8080/users/" + `?id=${Userid}` + `&password=${pwd}`)
+        // .then((res) => console.log(res.data))
+        // .catch((err) => {setformErrors({cred : "Invalid Credentials"})})
+        let data = {Userid : Userid, pwd : pwd};
+        dispatch(userValidate(data));
+        if(auth === false){
+            setformErrors({cred : "Invalid Credentails"});
+        }
+        else{
+            setformErrors({id: "", pwd : "", cred : ""});
+        }
     }
     return(
         <div>
@@ -37,6 +49,7 @@ const UserLogin = () =>{
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
             {formErrors.cred && <span className="text-danger">{formErrors.cred}</span>}
+            {auth === true ? <Navigate to="/userhome" /> : null}
         </div>
         </div>
     )
