@@ -26,9 +26,12 @@ const CoachLogin = () =>{
         // .catch((err) => {setformErrors({cred : "Invalid Credentials"})})
         let data = {coachid : coachid, pwd : pwd};
         dispatch(coachValidate(data));
-        // if(auth === true){
-        //     navigate("/coachhome");
-        // }
+        if(auth === false){
+            setformErrors({cred : "Invalid Credentails"});
+        }
+        else{
+            setformErrors({id: "", pwd : "", cred : ""});
+        }
     }
     return(
         <div>
@@ -47,7 +50,7 @@ const CoachLogin = () =>{
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
             {formErrors.cred && <span className="text-danger">{formErrors.cred}</span>}
-            {auth === true ? <Navigate to="/coachhome" /> : <span className="text-danger">Invalid Credentials</span>}
+            {auth === true ? <Navigate to="/coachhome" /> : null}
         </div>
         </div>
     )
