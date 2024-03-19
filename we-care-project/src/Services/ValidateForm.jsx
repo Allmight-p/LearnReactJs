@@ -78,6 +78,19 @@ const ValidateForm = (name, value) => {
                 return "Required";
             }
             return "";
+        case "appointmentDate":
+            if(!value){
+                return "Required";
+            }
+            else{
+            var d1 = new Date(value);
+            var d2 = new Date();
+            d2.setDate(d2.getDate() + 7);
+            if(d1 > d2){
+                return "date should be any upcoming 7 days";
+            }  
+            }
+            return "";
 
         default :
             return "";
