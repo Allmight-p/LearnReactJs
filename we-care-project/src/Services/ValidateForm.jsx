@@ -73,6 +73,11 @@ const ValidateForm = (name, value) => {
                 return "Required";
             }
             return "";
+        case "slot":
+            if(!value){
+                return "Required";
+            }
+            return "";
 
         default :
             return "";
