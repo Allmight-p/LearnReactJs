@@ -54,6 +54,13 @@
       "userId": 1,
       "coachId": 1,
       "id": "1"
+    },
+    {
+      "id": "8fb3",
+      "appointmentDate": "2024-03-22",
+      "slot": "9AM to 10 AM",
+      "userId": "1",
+      "coachId": "ba4f"
     }
   ]
 }
