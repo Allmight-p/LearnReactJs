@@ -1,0 +1,15 @@
+.nav-right{
+  float:right;
+}
+
+nav{
+  background-color: darkcyan;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+#gray-box{
+  background-color: gainsboro;
+  padding: 1em;
+  border-radius: 10px;
+}
