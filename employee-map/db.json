@@ -1,0 +1,34 @@
+{
+  "employee": [
+    {
+      "empId": 1234,
+      "name": "John",
+      "designation": "SSE",
+      "id": "49a2"
+    },
+    {
+      "empId": "4567",
+      "name": "Jack",
+      "designation": "SSE",
+      "id": "6928"
+    },
+    {
+      "id": "1010",
+      "empId": "1010",
+      "name": "Peter Griffin",
+      "designation": "Manager"
+    },
+    {
+      "id": "6277",
+      "name": "Naveen",
+      "designation": "Team Lead",
+      "empId": "0661"
+    },
+    {
+      "id": "7973",
+      "name": "Meg Griffin",
+      "designation": "VIP",
+      "empId": "0001"
+    }
+  ]
+}
